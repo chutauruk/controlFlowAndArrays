@@ -98,8 +98,14 @@ class Character {
         this.lovesCats = lovesCats;
         this.lovesDogs = lovesDogs;
     }
+    setHair(hairColor){
+        this.hair = hairColor;
+    }
     greet(otherCharacter) {
         console.log('Greetings Adventurer ' + otherCharacter + "!");
+    }
+    classyGreeting(otherClassyCharacter) {
+        console.log("Hello Horrid " + otherClassyCharacter.name + '!');
     }
     smite() {
         console.log('You are now smitten!');
@@ -109,9 +115,33 @@ class Character {
 const p1= new Character("Durian", 18, "brown", "brindle", true, true);
 const enemy = new Character();
 
-console.log(p1.greet("bob"));
-console.log(p1.smite());
+// console.log(p1.greet("bob"));
+// console.log(p1.smite());
 
-console.log(enemy.greet("sauron"));
+// console.log(enemy.greet("sauron"));
 
+
+console.log(p1.hair);
+p1.setHair('Burgundy');
 console.log(p1);
+
+console.log(p1.classyGreeting(enemy));
+
+class Hobbit extends Character{
+    steal() {
+        console.log("Run away!")
+    }
+    greet (otherCharacter){
+        console.log(`Hobbit says hello to ${otherCharacter}`)
+    }
+    smite(){
+        super.smite();
+        super.steal();
+    }
+}
+
+const frodo = new Character("Mr Baggins", 33, "blue","brown");
+console.log(frodo);
+console.log(frodo.smite());
+console.log(frodo.steal());
+console.log(frodo.greet("Sam"));
