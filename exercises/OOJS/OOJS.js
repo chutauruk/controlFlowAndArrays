@@ -89,7 +89,7 @@ Admin.prototype = Object.create(User.prototype)
 
 Admin.prototype.deleteUser = function(u){
     users = users.filter(user => {
-        return user.email != u email;
+        return user.email != u.email;
 });
 };
 
@@ -100,6 +100,8 @@ var admin = new Admin('shaun@ninjas.com', 'Shaun');
 var users = [userOne, userTwo, Admin];
 
 console.log(admin);
+console.log(users);
+admin.deleteUser(users[0]);
 userTwo.login();
 
 // userOne.login().updateScore().updateScore().logout();
